@@ -21,7 +21,7 @@ Const SECONDS_POPUP            = 5
 
 Const ELO_USERNAME = "Administrator"
 Const ELO_PASSWORD = "admin"
-Const ELO_ARCHIV   = "eloOfficeTest"
+Const ELO_ARCHIV   = "OfficeTest"
 
 Dim ELO, iRet
 
@@ -134,14 +134,14 @@ Class Data
 	End Property 
 	
 	Public Property Get getEloPath
-		getEloPath = "¶" & m_mandant & _
-					 "¶" & m_belegGfJahr & _
-					 "¶" & m_belegkat & _
-					 "¶" & UCase( Left(m_belegFirma,1) ) & _
-					 "¶" & m_belegFirma & _
-					 "¶" & m_belegTyp & _
-					 "¶" & m_belegMonat & _
-					 "¶" & m_belegParentFolder
+		getEloPath = "Â¶" & m_mandant & _
+					 "Â¶" & m_belegGfJahr & _
+					 "Â¶" & m_belegkat & _
+					 "Â¶" & UCase( Left(m_belegFirma,1) ) & _
+					 "Â¶" & m_belegFirma & _
+					 "Â¶" & m_belegTyp & _
+					 "Â¶" & m_belegMonat & _
+					 "Â¶" & m_belegParentFolder
 	End Property 
 	
 End Class  
@@ -276,7 +276,7 @@ Function CreateStructure(strEloPath)
   objIndex = 1
   CurrentEloPath = ""
   
-  strSplitted = Split(strEloPath,"¶") 
+  strSplitted = Split(strEloPath,"Â¶") 
   sizeOfArray = UBound(strSplitted)
   
   iParent=Elo.LookupIndex(strEloPath)  
@@ -285,7 +285,7 @@ Function CreateStructure(strEloPath)
 	  While i < sizeOfArray
 		 
 		CurrentObjectName = strSplitted(i+1)		  
-		CurrentEloPath = CurrentEloPath & "¶" + CurrentObjectName
+		CurrentEloPath = CurrentEloPath & "Â¶" + CurrentObjectName
 		
 		If( Elo.LookupIndex(CurrentEloPath) < 0 ) Then  
 		  
